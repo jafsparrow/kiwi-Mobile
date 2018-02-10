@@ -1,0 +1,62 @@
+<!--
+The template defines the view of the component - what is actually rendered. 
+In NativeScript applications the template is defined with XML using NativeScript UI elements. 
+It is different from HTML. So instead of <input>, <span>, <div> etc. - we have <TextField>, <Label> and layouts.
+The important thing is that although the elements are different - all of the Angular’s template syntax works exactly the same. 
+So you can still use template expressions, bindings, templates as well as all the built-in directives.
+-->
+
+<!--
+The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
+http://docs.nativescript.org/ui/action-bar
+-->
+<ActionBar title="Products" class="action-bar" backgroundColor="#FF5376">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="navigateBack()"></NavigationButton>
+        <ActionItem [nsRouterLink] = "['/order']" pageTransition ="slide" ios.position="right">
+          <Button class="" text="View Cart" class="action-item"></Button>
+        </ActionItem>
+        
+</ActionBar>
+
+
+<StackLayout class="page" backgroundColor="#eeeeee">
+        <RadListView [items]="items">
+            <ng-template tkListItemTemplate let-item="item">
+                <GridLayout rows="2*, *" columns="*" >
+                    <Image [src]="item.image ? item.image : image" row="0" col="0" height="200" stretch="aspectFill"
+                        class="product-image"
+                            (tap)="showProduct(item)"></Image>
+                    
+
+
+                    <GridLayout rows="*" columns="*,auto,auto"
+                        row="1" col="0"
+                        class="p-5 p-y-10 price-container"
+                        (tap)="enterQuantity(item)">
+                        <Label [text]="item.name" textWrap="true"
+                            class="h4" width="70%"
+                            col="0"></Label>
+                       <Label [text]="item.price" width="10%" textWrap="true" class="text-right"
+                            col="1"></Label>
+                       <Label text="&#Xf067;" width="10%" class="h3 fa text-right" textWrap="true"
+                            
+                            col="2"></Label>
+                    </GridLayout>
+
+                </GridLayout>
+            </ng-template>
+
+            <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" ios:itemHeight="200" spanCount="2"></ListViewGridLayout>
+       
+        </RadListView>
+<!-- 
+        <ListView [items]="items">
+            <ng-template let-item="item" let-odd="odd" let-even="even">
+              <StackLayout>
+                <Label [text]="item.name" class="list-group-item"></Label>
+                
+              </StackLayout>
+            </ng-template>
+        </ListView> -->
+
+    </StackLayout>

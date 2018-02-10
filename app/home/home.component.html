@@ -1,0 +1,76 @@
+<GridLayout backgroundColor="#FF5376"
+    rows="*, *" columns="*">
+
+    <StackLayout row="0" col="0" verticalAlignment="center"
+        horizontalAlignment="center"
+        >
+        <Image src="res://logo_icon"
+            width="100" height="100" stretch="aspectFill"></Image>
+            <Label text="Kiwi Icecream" textWrap="true" class="brand-text"></Label>
+            
+        
+        
+    </StackLayout>
+
+    <GridLayout row="1"
+        rows="*, *" columns="*, *"
+            class="menu-container">
+        <StackLayout text="0, 0" row="0" col="0"
+            class="home-menu-container" width="100%" height="100%"
+            [nsRouterLink]="['/items']"
+            pageTransition ="slide">
+                <StackLayout
+                    class="menu-item-container menu1">
+                    <Label text="&#xf288;" class="fa home-menu-icon" textWrap="true"
+                        horizontalAlignment="center">
+                    </Label>    
+                    <Label text="Products" textWrap="true"
+                        class="menu-item-text"></Label>
+                    
+                </StackLayout>
+
+            
+        </StackLayout>
+        <StackLayout text="0, 1" row="0" col="1"
+        class="home-menu-container" width="100%" height="100%"
+            [nsRouterLink]="['/order']">
+        <StackLayout
+            class="menu-item-container menu2">
+            <Label text="&#xf218;" class="fa home-menu-icon" textWrap="true"
+                horizontalAlignment="center">
+            </Label>    
+            <Label text="Orders" textWrap="true"
+                class="menu-item-text"></Label>
+            
+            </StackLayout>
+
+        </StackLayout>
+        <StackLayout text="1, 0" row="1" col="0"
+            class="home-menu-container menu3" width="100%" height="100%"
+            [nsRouterLink]="['/customers']">
+                <StackLayout
+                    class="menu-item-container">
+                    <Label text="&#xf02d;" class="fa home-menu-icon" textWrap="true"
+                        horizontalAlignment="center">
+                    </Label>    
+                    <Label text="Invoices" textWrap="true"
+                        class="menu-item-text"></Label>
+                    
+                </StackLayout>
+
+        </StackLayout>
+        <StackLayout text="1, 1" row="1" col="1"
+        class="home-menu-container menu4" width="100%" height="100%">
+                <StackLayout
+                    class="menu-item-container">
+                    <Label text="&#xf007;" class="fa home-menu-icon" textWrap="true"
+                        horizontalAlignment="center">
+                    </Label>    
+                    <Label text="Customers" textWrap="true"
+                        class="menu-item-text"></Label>
+                    
+                </StackLayout>
+
+    </StackLayout>
+    </GridLayout>
+</GridLayout>
