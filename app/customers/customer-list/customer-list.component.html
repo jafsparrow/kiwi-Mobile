@@ -1,1 +1,26 @@
-<Label text="customer list" textWrap="true"></Label>
+<ActionBar title="Customers" icon="" class="action-bar"
+  backgroundColor="#FF5376">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"
+    (tap)="navigateBack()"></NavigationButton>
+</ActionBar>
+<StackLayout>
+
+    <ListView [items]="customers"
+      class="list-group">
+      <ng-template let-item="item" let-odd="odd" let-even="even">
+        <GridLayout rows="*" columns="auto, *" class="list-group-item"
+         (tap)="navigate()">
+          
+            <Image src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Alesso_profile.png"
+              row="0" col="0" width="40"
+              class="thumb"></Image>
+            
+            <Label [text]="item.name"
+              row="0" col="1"></Label>
+          
+          
+        </GridLayout>
+      </ng-template>
+  </ListView>
+
+</StackLayout>

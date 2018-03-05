@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular/router/router-extensions";
 
 
 
@@ -11,4 +12,12 @@ import { Component } from "@angular/core";
 })
 export class CustomerDetailComponent {
 
+    constructor(private router: RouterExtensions) {
+
+    }
+
+
+    navigateBack() {
+        this.router.backToPreviousPage();
+    }
 }

@@ -1,1 +1,18 @@
-<Label text="customer detail" textWrap="true"></Label>
+<ActionBar title="Customers" icon="" class="action-bar"
+  backgroundColor="#FF5376">
+  <NavigationButton text="Back" android.systemIcon="ic_menu_back"
+    (tap)="navigateBack()"></NavigationButton>
+</ActionBar>
+
+<TabView selectedIndex="0"  (selectedIndexChange)="onIndexChanged($event)">
+        <StackLayout *tabItem="{title: 'Orders'}">
+            <Label text="Order details" class="m-15 h2 text-left" color="blue"></Label>
+            <ScrollView>
+                <Label text="content" textWrap="true" class="m-15"></Label>
+            </ScrollView>
+        </StackLayout>
+        <StackLayout *tabItem="{title: 'Information'}">
+            <Image class="m-t-30 m-b-15" src="res://icon" width="80" height="80"></Image>
+            <Label text="Customer Information" textWrap="true" class="h2 m-x-auto" color="blue"></Label>
+        </StackLayout>
+    </TabView>

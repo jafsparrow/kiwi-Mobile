@@ -47,7 +47,7 @@
         </StackLayout>
         <StackLayout text="1, 0" row="1" col="0"
             class="home-menu-container menu3" width="100%" height="100%"
-            [nsRouterLink]="['/customers']">
+            [nsRouterLink]="['/invoice']">
                 <StackLayout
                     class="menu-item-container">
                     <Label text="&#xf02d;" class="fa home-menu-icon" textWrap="true"
@@ -62,7 +62,8 @@
         <StackLayout text="1, 1" row="1" col="1"
         class="home-menu-container menu4" width="100%" height="100%">
                 <StackLayout
-                    class="menu-item-container">
+                    class="menu-item-container"
+                    [nsRouterLink]="['/customers']">
                     <Label text="&#xf007;" class="fa home-menu-icon" textWrap="true"
                         horizontalAlignment="center">
                     </Label>    
