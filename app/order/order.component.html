@@ -3,6 +3,7 @@
 </ActionBar>
 <GridLayout backgroundColor="#dedede" rows="auto, auto, *, auto">
 
+            
     <GridLayout columns="*,*"
         row="1"
         class="m-x-10 m-t-5 p-l-15 invoice-header">
@@ -47,9 +48,14 @@
                     </StackLayout>
                 </ng-template>
                 <ng-template tkListViewFooter>
-                    <GridLayout>
-                        <Button class="btn btn-default" text="Confirm Order"
-                            (tap)="confirmOrder()"></Button>
+                    <GridLayout rows="auto">
+                        <Button class="btn btn-default" text="Confirm Order" [isEnabled]="!isPlacingOrder && cartItems.length >0"
+                            (tap)="confirmOrder()"
+                            ></Button>
+
+                        <ActivityIndicator width="20" height="20" [busy]="isPlacingOrder" class="activity-indicator"></ActivityIndicator>
+                        
+                            
                     </GridLayout>
                 </ng-template>
             </RadListView>

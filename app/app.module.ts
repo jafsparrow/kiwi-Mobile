@@ -17,11 +17,15 @@ import { NativeScriptUIListViewModule } from "nativescript-pro-ui/listview/angul
 import { CartService } from "./shared/services/car.service";
 import { ProductService } from "./shared/services/product.service";
 import { ProductDetailComponent } from "./item/product/product.component";
+import { LoginComponent } from "./login/login.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
+
+import { AuthGuard } from "./shared/guards/auth.guard";
+import { AuthService } from "./shared/services/auth.service";
 
 @NgModule({
     bootstrap: [
@@ -30,7 +34,8 @@ import { ProductDetailComponent } from "./item/product/product.component";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         AppComponent,
@@ -39,14 +44,17 @@ import { ProductDetailComponent } from "./item/product/product.component";
         ModalComponent,
         HomeComponent,
         OrderComponent,
-        ProductDetailComponent
+        ProductDetailComponent,
+        LoginComponent
     ],
     entryComponents: [ModalComponent, ProductDetailComponent],
     providers: [
         ItemService,
         ModalDialogService,
         CartService,
-        ProductService
+        ProductService,
+        AuthGuard,
+        AuthService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

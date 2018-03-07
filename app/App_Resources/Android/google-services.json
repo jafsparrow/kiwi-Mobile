@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "974744288535",
+    "firebase_url": "https://kiwi-distributor.firebaseio.com",
+    "project_id": "kiwi-distributor",
+    "storage_bucket": "kiwi-distributor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974744288535:android:6bef3d89dad0511e",
+        "android_client_info": {
+          "package_name": "org.nativescript.kiwi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974744288535-6oknvn7rkrh456co1ibc5tn4t24pli3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgi4wR4z81D23J_ZBjGlx9D1PyIGPDV0E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

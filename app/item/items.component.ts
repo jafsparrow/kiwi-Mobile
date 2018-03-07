@@ -11,6 +11,8 @@ import { Product } from "../shared/models/product";
 import { RouterExtensions } from "nativescript-angular/router/router-extensions";
 import { CartService } from "../shared/services/car.service";
 
+import { firestore } from "nativescript-plugin-firebase";
+
 @Component({
     selector: "ns-items",
     moduleId: module.id,
@@ -20,18 +22,40 @@ import { CartService } from "../shared/services/car.service";
 export class ItemsComponent implements OnInit {
     items: Product[];
     image ="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Ice_Cream_dessert_02.jpg/220px-Ice_Cream_dessert_02.jpg";
-
+    isLoading: boolean;
     // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class. 
     // Angular knows about this service because it is included in your app’s main NgModule, defined in app.module.ts.
     constructor(private itemService: ItemService,
         private modal: ModalDialogService, private vcRef: ViewContainerRef,
         private productService: ProductService,
         private router: RouterExtensions,
-        private cartService: CartService) { }
+        private cartService: CartService) {
+            this.items = [];
+            this.isLoading = true;
+         }
 
     ngOnInit(): void {
         // this.items = this.itemService.getItems();
-        this.items = this.productService.getProducts();
+        // this.items = this.productService.getProducts();
+        this.getProducts();
+    }
+
+    getProducts() {
+        this.productService.getProductsFromStore()
+        .then(
+            (querySnapshot: firestore.QuerySnapshot) => {
+                querySnapshot.forEach(doc => {
+                  console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
+                  let item = doc.data();
+                  const id = doc.id;
+                  item['id'] = id;
+                  this.items.push(<Product>item);
+                  this.isLoading = false;
+
+                  
+                });
+              }
+        );
     }
 
     enterQuantity(item) {

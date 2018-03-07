@@ -20,6 +20,11 @@ http://docs.nativescript.org/ui/action-bar
 
 
 <StackLayout class="page" backgroundColor="#eeeeee">
+        <StackLayout verticalAlignment="center" *ngIf="isLoading" height="100%" width="100%">
+            
+            <ActivityIndicator width="50" height="50"  [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
+        </StackLayout>
+        
         <RadListView [items]="items">
             <ng-template tkListItemTemplate let-item="item">
                 <GridLayout rows="2*, *" columns="*" >
@@ -29,17 +34,17 @@ http://docs.nativescript.org/ui/action-bar
                     
 
 
-                    <GridLayout rows="*" columns="*,auto,auto"
+                    <GridLayout rows="*" columns="*,*,auto"
                         row="1" col="0"
                         class="p-5 p-y-10 price-container"
                         (tap)="enterQuantity(item)">
                         <Label [text]="item.name" textWrap="true"
-                            class="h4" width="70%"
+                            class="h4"
                             col="0"></Label>
-                       <Label [text]="item.price" width="10%" textWrap="true" class="text-right"
+                       <Label [text]="item.price"  class="text-right" textWrap="true"
                             col="1"></Label>
                        <Label text="&#Xf067;" width="10%" class="h3 fa text-right" textWrap="true"
-                            
+                            row="0"
                             col="2"></Label>
                     </GridLayout>
 

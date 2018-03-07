@@ -1,16 +1,25 @@
 import { Injectable } from "@angular/core";
 
 import { Product } from "../models/product";
+const firebase = require("nativescript-plugin-firebase/app");
+
+import { firestore } from "nativescript-plugin-firebase";
 
 @Injectable()
 export class ProductService {
-
+    productsCollection = firebase.firestore().collection("products");
     getProducts() {
         return PRODUCTS;
     }
 
     getProductDetails(id: number) {
         return PRODUCTS.filter(item => item.id === id)[0];
+    }
+
+    getProductsFromStore() {
+        console.log('test products function');
+        return this.productsCollection.get();
+           
     }
 
 }

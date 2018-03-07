@@ -21,6 +21,7 @@ export class OrderComponent {
     private _cartItems: ObservableArray<LineItem>;
     cartItemCount: number;
     cartTotalPrice: number;
+    isPlacingOrder = false;
 
     constructor(private productService: ProductService,
                 private cartService: CartService,
@@ -46,7 +47,16 @@ export class OrderComponent {
     
     // }
     confirmOrder() {
-        alert('Placing your order now, please wait..!')
+        this.isPlacingOrder = true;
+        this.cartService.submitOrder()
+            .then(res => {
+                alert('Order has been placed successfully');
+                this.isPlacingOrder = false;
+                this.router.navigate(['/home'],{ clearHistory: true });
+            });
+
+        
+        
     }
 
     navigateBack() {

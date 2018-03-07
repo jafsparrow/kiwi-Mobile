@@ -1,0 +1,43 @@
+<GridLayout backgroundColor="#FF5376" rows="*, *">
+    <StackLayout row="0" horizontalAlignment="center" verticalAlignment="center">
+        
+        
+        <Image src="res://logo_icon"
+        width="100" height="100" stretch="aspectFill"></Image>
+        <Label text="Please Login" textWrap="true"
+        row="0"></Label>
+    </StackLayout>
+    
+    <StackLayout class="form"
+        row="1">
+            <StackLayout class="input-field">
+                <TextField #email="ngModel" [(ngModel)]="user.email" class="input" hint="Email" required></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <TextField #password="ngModel" hint="Password" secure="true" [(ngModel)]="user.password" class="input" required></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+                <Button [isEnabled]="email.valid && password.valid" text="Login" class="btn btn-primary"
+                (tap)="submit()"></Button>
+                
+            
+
+           
+        </StackLayout>
+<!-- 
+
+        <StackLayout class="card">
+                <Image class="logo" src="res://logo" stretch="none" horizontalAlignment="center"></Image>
+                <StackLayout [class]="isLoggingIn ? 'form white' : 'form gold'">
+                    <TextField #email class="input input-border" hint="Email Address" keyboardType="email" [(ngModel)]="user.email" autocorrect="false"
+                        autocapitalizationType="none"></TextField>
+                    <TextField #password class="input input-border" hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
+                    <Button [text]="isLoggingIn ? 'Login' : 'Register'" class="btn btn-primary" (tap)="submit()"></Button>
+                    <Button [text]="isLoggingIn ? 'Register' : 'Back to login'" (tap)="toggleDisplay()" class="btn"></Button>
+                    <Button horizontalAlignment="center" class="btn" text="Forgot password" (tap)="forgotPassword()" [opacity]="isLoggingIn ? 1 : 0"></Button>
+                </StackLayout>
+           </StackLayout>
+     -->
+    
+</GridLayout>
