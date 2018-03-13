@@ -5,18 +5,17 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
-import { ModalComponent } from "./item/modal/modal.component";
+import { ModalComponent } from "./products/modal/modal.component";
 
-import { ItemService } from "./item/item.service";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import { ProductsListComponent } from "./products/prodcuts-list.component";
+// import { ProductDetailComponent } from "./products/product-detail/product-detail.component";
 import { HomeComponent} from "./home/home.component";
 import { OrderComponent } from "./order/order.component";
 import { NativeScriptUIListViewModule } from "nativescript-pro-ui/listview/angular";
 
 import { CartService } from "./shared/services/car.service";
 import { ProductService } from "./shared/services/product.service";
-import { ProductDetailComponent } from "./item/product/product.component";
+import { ProductDetailComponent } from "./products/product-detail-modal/product.component";
 import { LoginComponent } from "./login/login.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -39,22 +38,18 @@ import { AuthService } from "./shared/services/auth.service";
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent,
         ModalComponent,
         HomeComponent,
         OrderComponent,
-        ProductDetailComponent,
-        LoginComponent
+        LoginComponent,
+        ProductDetailComponent
     ],
     entryComponents: [ModalComponent, ProductDetailComponent],
     providers: [
-        ItemService,
-        ModalDialogService,
         CartService,
-        ProductService,
         AuthGuard,
-        AuthService
+        AuthService,
+        ProductService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

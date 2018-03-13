@@ -15,17 +15,20 @@ http://docs.nativescript.org/ui/action-bar
         <ActionItem [nsRouterLink] = "['/order']" pageTransition ="slide" ios.position="right">
           <Button class="" text="View Cart" class="action-item"></Button>
         </ActionItem>
-        
+        <ActionItem text="Logout" ios.position="popup" android.position="popup" (tap)="singOut()">  </ActionItem>
+    
 </ActionBar>
 
 
 <StackLayout class="page" backgroundColor="#eeeeee">
+        <SearchBar id="searchBar" hint="Search" text="" (clear)="onClear($event)" (submit)="onSubmit($event)" class="search-bar"></SearchBar>
+        
         <StackLayout verticalAlignment="center" *ngIf="isLoading" height="100%" width="100%">
             
             <ActivityIndicator width="50" height="50"  [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
         </StackLayout>
         
-        <RadListView [items]="items">
+        <RadListView [items]="filteredProducts">
             <ng-template tkListItemTemplate let-item="item">
                 <GridLayout rows="2*, *" columns="*" >
                     <Image [src]="item.image ? item.image : image" row="0" col="0" height="200" stretch="aspectFill"

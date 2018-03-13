@@ -22,8 +22,8 @@ export class LoginComponent {
                 private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
-        this.user.email = "user@nativescript.org";
-        this.user.password = "password";
+        this.user.email = "test@test.com";
+        this.user.password = "jafrose";
     }
 
     submit() {
